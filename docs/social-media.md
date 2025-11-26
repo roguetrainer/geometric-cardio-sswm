@@ -10,6 +10,10 @@
 
 🫀 This particular implementation focuses on CARDIAC BIOMECHANICS: modeling how heart tissue deforms, respecting the helical fiber architecture and incompressibility constraints that govern actual cardiac dynamics. The framework uses SO(3) group actions for fiber orientations, Riemannian metrics for the latent space geometry, and point cloud representations for permutation invariance.
 
+🛢️ Following the proud physics tradition of "assume a spherical cow," we start with a cylindrical heart geometry. Yes, real ventricles are more complex, but the cylinder captures the essential features — transmural fiber rotation, wall thickness, curved manifold structure — while remaining mathematically tractable. 📐 It's the cardiac equivalent of MNIST: establish the framework with clean geometry, then scale to the messy reality of patient-specific anatomy. 
+
 👩‍🔬 The broader lesson: physics training emphasizes thinking about SYMMETRIES, CONSERVATION LAWS, and GEOMETRIC STRUCTURE. These same principles are proving useful for building ML systems that need to understand and predict physical processes. Not because  math is elegant (though it is), but because the world actually obeys these constraints.
 
-🆘 Help me test this implementation - with SYNTHETIC DATA GENERATION, TRAINING PIPELINE, and DOCUMENTATION is available at the repo. 
+🆘 Help me test this implementation: SYNTHETIC DATA GENERATION, TRAINING PIPELINE, and DOCUMENTATION. 
+
+#GeometricDeepLearning #WorldModels #ComputationalPhysics #CardiacModeling  #PhysicsInML #SelfSupervisedWorldModels #SSWM #AGI #ArtificialGeneralIntelligence #SphericalCow #CylindricalHeart
