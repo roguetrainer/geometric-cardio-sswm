@@ -1,4 +1,4 @@
-# World Models in the News - Novemeber 2025
+# World Models in the News - November 2025
 
 Here is a breakdown of why Self-Supervised World Models (SSWMs) are in the news right now, and the role of Yann LeCun.
 
