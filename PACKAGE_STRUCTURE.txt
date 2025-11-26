@@ -1,0 +1,29 @@
+.
+|____.gitignore
+|____LICENSE
+|____PACKAGE_STRUCTURE.txt
+|____README.md
+|____docs
+| |____architecture_details.md
+| |____mathematical_background.md
+| |____training_guide.md
+|____img
+| |____README.md
+|____notebooks
+| |____01_geometric_priors.ipynb
+| |____02_synthcardio_data.ipynb
+| |____03_notebook.ipynb
+| |____04_notebook.ipynb
+| |____05_notebook.ipynb
+|____requirements.txt
+|____setup.sh
+|____src
+| |______init__.py
+| |____data_generator.py
+| |____decoder.py
+| |____dynamics_model.py
+| |____encoder.py
+| |____geometric_utils.py
+| |____sswm_model.py
+| |____training.py
+| |____visualization.py
