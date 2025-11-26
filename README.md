@@ -1,15 +1,21 @@
-# Geometric Cardio SSWM: Self-Supervised World Models for Cardiac Mechanics
+# Geometric Cardio SSWM: Self-Supervised World Models for Cardiac Mechanics.  
 
 A comprehensive implementation of **Self-Supervised World Models (SSWMs) with geometric priors applied to cardiac biomechanics.** This package demonstrates how differential geometry, group theory, and topological concepts can be integrated into machine learning models for understanding and predicting cardiac dynamics.
-
+ 
+---
 ![SSWM-cardiac](./img/SSWM-cardio.png)
-
+---
 ## Overview
 
 This project explores the intersection of:
 - **Self-Supervised World Models (SSWMs)**: Predictive models that learn latent representations of dynamical systems
 - **Geometric Priors**: Incorporating SO(3), E(3), and SE(3) group actions into neural architectures
 - **Cardiac Mechanics**: Modeling the complex fiber architecture and deformation patterns of the human heart
+
+---
+### See also:
+* [Why SSWMs Are in the News (2025)](./docs/importance-of-world-models.md) 🚨
+---
 
 ### Key Concepts
 
