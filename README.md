@@ -75,6 +75,57 @@ O_t = {
 }
 ```
 
+## A Note on Geometric Simplifications 🐄
+
+Following the proud physics tradition of the ["spherical cow"](https://en.wikipedia.org/wiki/Spherical_cow) assumption, we begin with a **cylindrical heart**.
+
+For those unfamiliar: physicists are famous for making wildly simplifying assumptions to make problems mathematically tractable. The classic joke involves a dairy farmer with low milk production who consults a physicist. After weeks of calculation, the physicist presents the solution: "First, assume a spherical cow in a vacuum..."
+
+### Our "Cylindrical Heart" Assumption
+
+The `SynthCardioDataGenerator` creates cardiac geometry as a cylindrical shell:
+- **Inner radius** (endocardium): 0.4
+- **Outer radius** (epicardium): 0.6  
+- **Height**: 1.0
+- **Coordinate system**: (θ, z, r) - cylindrical
+
+### What We're Simplifying Away
+
+A real left ventricle is:
+- ✗ Roughly ellipsoidal/bullet-shaped (not cylindrical)
+- ✗ Has complex regional curvature variations
+- ✗ Includes papillary muscles and trabeculae
+- ✗ Has spatially-varying wall thickness
+- ✗ Connected to valves, atria, and other chambers
+- ✗ Subject to boundary conditions from surrounding tissue
+
+### Why This Is Still Valid
+
+Despite these simplifications, our cylinder captures the **essential geometric features**:
+- ✓ Transmural fiber rotation (-60° to +60° from endo to epi)
+- ✓ Wall thickness and radial structure
+- ✓ Cylindrical/axial symmetry
+- ✓ The mathematical structure of strain on a curved manifold
+- ✓ Point cloud representation suitable for real data
+
+**Real cardiac modeling** does eventually move to patient-specific geometries reconstructed from MRI/CT imaging. But "assume a cylindrical heart" is a perfectly valid starting point for:
+- Proof-of-concept implementations
+- Algorithm development and testing
+- Understanding the core mathematical machinery
+- Synthetic data generation for training
+
+Think of it as the cardiac equivalent of training on MNIST before tackling ImageNet. We're establishing the framework with clean geometry before adding the messy reality of actual hearts.
+
+### Future Extensions
+
+Moving beyond the cylinder:
+- **Ellipsoidal geometry**: More realistic ventricular shape
+- **Patient-specific meshes**: From medical imaging
+- **Multi-chamber models**: Full heart geometry
+- **Coupled systems**: Including blood flow and electrical activation
+
+But for now: assume a cylindrical heart, and enjoy the tractable mathematics! 🫀📐
+
 ## Geometric Priors
 
 ### Fiber Bundle Structure
@@ -199,7 +250,7 @@ The heart wall (myocardium) consists of muscle fibers organized in complex helic
 
 ### Strain Tensor Decomposition
 
-The Cauchy-Green strain tensor C = F^T F captures local deformation:
+The Cauchy-Green strain tensor $C = F^T F$ captures local deformation:
 
 ```
 C = [C_11  C_12  C_13]
@@ -208,20 +259,19 @@ C = [C_11  C_12  C_13]
 ```
 
 Key invariants:
-- **I_1 = tr(C)**: First invariant (volume change)
-- **I_2 = 1/2[(tr C)² - tr(C²)]**: Second invariant
-- **I_3 = det(C)**: Third invariant (incompressibility)
-- **I_4 = f^T C f**: Fiber stretch (f = fiber direction)
+
+- **$I_1 = \text{tr}(C)$**: First invariant (volume change)
+- **$I_2 = \frac{1}{2}[(\text{tr } C)^2 - \text{tr}(C^2)]$**: Second invariant
+- **$I_3 = \det(C)$**: Third invariant (incompressibility)
+- **$I_4 = f^T C f$**: Fiber stretch ($f$ = fiber direction)
 
 ### Geodesic Interpolation
 
-In the latent space with metric G(z), the geodesic between z_A and z_B satisfies:
+In the latent space with metric $G(z)$, the geodesic between $z_A$ and $z_B$ satisfies:
 
-```
-d²z^i/dλ² + Γ^i_jk (dz^j/dλ)(dz^k/dλ) = 0
-```
+$$\frac{d^2z^i}{d\lambda^2} + \Gamma^i_{jk} \frac{dz^j}{d\lambda}\frac{dz^k}{d\lambda} = 0$$
 
-where Γ^i_jk are Christoffel symbols of the metric connection.
+where $\Gamma^i_{jk}$ are Christoffel symbols of the metric connection.
 
 ## Training
 
